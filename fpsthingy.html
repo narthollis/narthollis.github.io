@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+(function() {
+	var width = 500;
+	var height = 50;
+	var time = 5;
+	
+	var boxHeight = height;
+	var boxWidth = boxHeight;
+
+	var TweenLeft = function (fps) {
+		console.info("new tween: " + fps); 
+		this.fps = fps;
+		this.millsecPerFrame = parseInt(1000 / fps);
+		
+		this.stepPerMs = width / (time * 1000);
+		
+		this.container = document.createElement('div');
+		this.container.style.height = height + 'px';
+		
+		this.canvas = document.createElement('canvas');
+		var style = this.canvas.style;
+		style.width = width + 'px';
+		style.height = height + 'px';
+		style.float = 'left';
+		style.clear = 'both';
+		
+		this.container.appendChild(this.canvas);
+		
+		var label =  document.createElement('h3');
+		label.innerHTML = fps + 'fps (fixed)';
+		this.container.appendChild(label)
+				
+		this.position = -1 * boxWidth;
+		this.last = Date.now();
+		this.lastDraw = Date.now();
+		
+		var self = this;
+	}
+	
+	TweenLeft.prototype.onFrame = function ( ) {
+		var now = Date.now();
+		var diff = now - this.last;
+		
+		this.position = this.position + (this.stepPerMs * diff);
+		
+		if (this.position > width) {
+			this.position = -1 * boxWidth;
+		}
+		
+		this.last = now;
+		
+		if ( (now - this.lastDraw) > this.millsecPerFrame ) {
+			var ctx = this.canvas.getContext('2d');
+			ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			ctx.fillRect(this.position, 0, boxWidth, boxHeight);
+			
+			this.lastDraw = now;
+		};
+	};
+	
+	function Go(tweens) {
+		this.tweens = tweens;
+	
+		this.last = Date.now();
+		
+		this.count = document.createElement('h1');
+		this.count.innerHTML = "0 fps (render)";
+		
+		this.lastFps = 0;
+	
+		var self = this;
+		window.requestAnimationFrame(function() { self.onFrame(); });
+	}
+	
+	Go.prototype.onFrame = function() {
+		for (var i=0; i < this.tweens.length; i++) {
+			this.tweens[i].onFrame();
+		}
+		var now = Date.now();
+		var fps = 1000/(now - this.last);
+		this.count.innerHTML = Math.round(((fps + this.lastFps)/2)*100)/100 + ' fps';
+		this.count.style.clear = 'both';
+		this.lastFps = fps;
+		
+		this.last = now;
+		
+		var self = this;
+		window.requestAnimationFrame(function() { self.onFrame(); });
+	};
+	
+	var requestedAnnimations = [15,30,60,120,144];
+	var tweens = [];
+	for (var i=0; i < requestedAnnimations.length; i++) {
+		var a = new TweenLeft(requestedAnnimations[i]);
+		document.body.appendChild(a.container);
+		tweens.push(a);
+	}
+	
+	document.body.appendChild((new Go(tweens)).count);
+})();
+</script>
+</body>
+</html>
