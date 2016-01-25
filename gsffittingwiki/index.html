@@ -125,9 +125,9 @@ Capital Core Defense Field Extender I
                     <dt>EVE Release</dt><dd>YC 118.1</dd>
                 </dl>
                 <nav>
-                    <a href="#cargo">Cargo</a>
-                    <a href="#notes">Notes</a>
                     <a href="#eft">EFT</a>
+                    <a href="#notes">Notes</a>
+                    <a href="#cargo" class="current">Cargo</a>
                 </nav>
             </section>
 		</article>
@@ -145,7 +145,7 @@ Capital Core Defense Field Extender I
 							section.style.display = 'block';
 						}
 					}
-					var tabLinks = fitting.querySelectorAll('aside a');
+					var tabLinks = fitting.querySelectorAll('nav a');
 					for(var j=0; j<tabLinks.length; j++) {
 						tabLinks[j].className="";
 					}
