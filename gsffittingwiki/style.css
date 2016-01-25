@@ -1,0 +1,31 @@
+article:before, article:after { content: " "; display: table; }
+article:after { clear: both; }
+
+article.fitting { border: 1px solid #f1f1f1; width: 800px; height: 300px; padding: 0; }
+
+article.fitting header { border-bottom: 1px solid #f1f1f1; padding: 5px; margin: 0; height: 40px; line-height: 40px; vertical-align: middle;  }
+article.fitting header > * { display: inline-block; font-size: 18px; line-height: 40px; vertical-align: middle; padding: 0; margin: 0;}
+article.fitting header h1:after { content: " - "; }
+article.fitting header .icon { width: 32px; height: 32px; margin: 4px; }
+article.fitting header .icon img { width: 32px; height: 32px; }
+article.fitting header .icon.usage { float: left; }
+article.fitting header .icon.rembursment { float: right; }
+article.fitting header .doctrine { float: right; }
+
+article.fitting aside { width: 200px; height: 249px; float: left; border-right: 1px solid #f1f1f1; overflow: auto; padding: 5px; box-sizing: border-box; }
+
+article.fitting section { width: 600px; float: right; padding: 0 10px; box-sizing: border-box; }
+
+article.fitting section > * { height: 32px; line-height: 32px; font-size: 18px; vertical-align: middle; /*padding: 5px;*/ margin: 0; display: inline-block; }
+article.fitting section h3 { width: 96px; font-weight: normal; }
+article.fitting section span { width: 32px; background-size: 32px; background-repeat: no-repeat; border: 1px solid #f1f1f1; background-position: center center; }
+
+article.fitting section.high span:empty { background-image: url('high.png'); }
+article.fitting section.med span:empty { background-image: url('med.png'); }
+article.fitting section.low span:empty { background-image: url('low.png'); }
+article.fitting section.rig span:empty { background-image: url('rig.png'); }
+article.fitting section.subsystem span:nth-of-type(1):empty { background-image: url('sub_1.png'); }
+article.fitting section.subsystem span:nth-of-type(2):empty { background-image: url('sub_2.png'); }
+article.fitting section.subsystem span:nth-of-type(3):empty { background-image: url('sub_3.png'); }
+article.fitting section.subsystem span:nth-of-type(4):empty { background-image: url('sub_4.png'); }
+article.fitting section.subsystem span:nth-of-type(5):empty { background-image: url('sub_5.png'); }
