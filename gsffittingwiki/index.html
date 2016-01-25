@@ -13,6 +13,87 @@
 				<span class="icon rembursment"><img src="scc.png" title="SCC"></span>
 			</header>
 			<aside>
+				<ul>
+					<li><a href="#fitting" class="current">Fitting</a></li>
+					<li><a href="#cargo">Cargo</a></li>
+					<li><a href="#notes">Notes</a></li>
+					<li><a href="#eft">EFT</a></li>
+				</ul>
+			</aside>
+			<section class="fitting">
+				<section class="high">
+					<h3>High</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="Med">
+					<h3>Med</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="low">
+					<h3>Low</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="subsystem">
+					<h3>Subsystem</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="rig">
+					<h3>Rigs</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="drones">
+					<h3>Drones</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+				<section class="ammo">
+					<h3>Ammo</h3>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+					<span class="slot"></span>
+				</section>
+			</section>
+			<section class="cargo"></section>
+			<section class="notes"></section>
+			<section class="eft">
 				<pre>[Naglfar, Marcus Rosso's Naglfar]
 Damage Control II
 Gyrostabilizer II
@@ -35,77 +116,40 @@ Siege Module I
 Capital Core Defense Field Extender I
 Capital Core Defense Field Extender I
 Capital Core Defense Field Extender I
-</pre>
-			</aside>
-			<section class="high">
-				<h3>High</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="Med">
-				<h3>Med</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="low">
-				<h3>Low</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="subsystem">
-				<h3>Subsystem</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="rig">
-				<h3>Rigs</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="drones">
-				<h3>Drones</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-			</section>
-			<section class="ammo">
-				<h3>Ammo</h3>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
-				<span class="slot"></span>
+				</pre>
 			</section>
 		</article>
+		<script type="text/javascript">
+			(function() {
+				function onTabLinkClick(e) {
+					e.preventDefault();
+					var a = e.target.parentElement.parentElement.parentElement.parentElement;
+					var sections = a.querySelectorAll(':scope > section')
+					for (var k=0; k<sections.length; k++) {
+						var section = sections[k];
+						if (('#' + section.className) !== e.target.getAttribute('href')) {
+							section.style.display = 'none';
+						} else {
+							section.style.display = 'block';
+						}
+					}
+					var tabLinks = fitting.querySelectorAll('aside a');
+					for(var j=0; j<tabLinks.length; j++) {
+						tabLinks[j].className="";
+					}
+					e.target.className="current";
+				}
+			
+				var fittings = document.querySelectorAll("article.fitting");
+				for (var i=0; i<fittings.length; i++) {
+					var fitting = fittings[i];
+					
+					var tabLinks = fitting.querySelectorAll('aside a');
+					for(var j=0; j<tabLinks.length; j++) {
+						tabLinks[j].addEventListener('click', onTabLinkClick);
+					}
+				}
+			})();
+		</script>
 	</body>
 </html>
