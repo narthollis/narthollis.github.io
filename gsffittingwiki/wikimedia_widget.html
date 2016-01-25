@@ -1,0 +1,357 @@
+<includeonly>
+<!--{assign var=uniqID value="fitting" . $smarty.now}-->
+<article class="fitting" id="<!--{$uniqID}-->">
+    <header>
+        <!--{foreach from=$groups key=url item=name}-->
+        <span class="icon usage"><img src="<!--{$url|escape:'url'}-->" title="<!--{$name|escape}-->" /></span>
+        <!--{/foreach}-->
+        <h1><!--{$ship|escape}--></h1>
+        <h2><!--{$fitName|escape}--></h2>
+        <!--{if $doctrine != ""}--><span class="doctrine"></span><!--{/if}-->
+        <!--{if $reimbursement != ""}--><span class="icon reimbursement"><img src="<!--{$reimbursement:escape:'url'}-->" title="SCC"></span><!--{/if}-->
+    </header>
+
+    <aside class="cargo">
+        <h3>Cargo</h3>
+        <ul>
+        <!--{foreach from=$cargo key=$id item=$name}--><li><!--{$name|escape}--></li><!--{/foreach}-->
+        </ul>
+    </aside>
+    <aside class="notes">
+        <h3>Notes</h3>
+        <!--{$notes|escape}-->
+    </aside>
+    <aside class="eft">
+        <h3>EFT</h3>
+        <pre>[<!--{$ship|escape}-->, <!--{$fitName|escape}-->]
+<!--{if isset($high1name)}--><!--{if $high1name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high1name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high2name)}--><!--{if $high2name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high2name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high3name)}--><!--{if $high3name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high3name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high4name)}--><!--{if $high4name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high4name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high5name)}--><!--{if $high5name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high5name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high6name)}--><!--{if $high6name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high6name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high7name)}--><!--{if $high7name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high7name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($high8name)}--><!--{if $high8name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high8name|escape}--><!--{/if}-->
+<!--{/if}-->
+<!--{if isset($mid1name)}--><!--{if $mid1name == "open"}-->[Empty mid Slot]<!--{else}--><!--{$mid1name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid2name)}--><!--{if $mid2name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid2name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid3name)}--><!--{if $mid3name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid3name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid4name)}--><!--{if $mid4name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid4name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid5name)}--><!--{if $mid5name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid5name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid6name)}--><!--{if $mid6name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid6name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid7name)}--><!--{if $mid7name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid7name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($mid8name)}--><!--{if $mid8name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid8name|escape}--><!--{/if}-->
+<!--{/if}-->
+<!--{if isset($low1name)}--><!--{if $low1name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low1name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low2name)}--><!--{if $low2name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low2name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low3name)}--><!--{if $low3name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low3name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low4name)}--><!--{if $low4name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low4name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low5name)}--><!--{if $low5name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low5name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low6name)}--><!--{if $low6name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low6name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low7name)}--><!--{if $low7name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low7name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}-->
+<!--{/if}-->
+<!--{if isset($subsystem1name)}--><!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}-->
+<!--{/if}-->
+<!--{/if}--><!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}-->
+<!--{/if}--><!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}-->
+<!--{/if}-->
+<!--{if isset($drone1name)}--><!--{$drone1name|escape}-->
+<!--{/if}--><!--{if isset($drone2name)}--><!--{$drone2name|escape}-->
+<!--{/if}--><!--{if isset($drone3name)}--><!--{$drone3name|escape}-->
+<!--{/if}--><!--{if isset($drone4name)}--><!--{$drone4name|escape}-->
+<!--{/if}--><!--{if isset($drone5name)}--><!--{$drone5name|escape}-->
+<!--{/if}--><!--{if isset($drone6name)}--><!--{$drone6name|escape}-->
+<!--{/if}-->
+<!--{if isset($charge1name)}--><!--{$charge1name|escape}-->
+<!--{/if}--><!--{if isset($charge2name)}--><!--{$charge2name|escape}-->
+<!--{/if}--><!--{if isset($charge3name)}--><!--{$charge3name|escape}-->
+<!--{/if}--><!--{if isset($charge4name)}--><!--{$charge4name|escape}-->
+<!--{/if}--><!--{if isset($charge5name)}--><!--{$charge5name|escape}-->
+<!--{/if}--><!--{if isset($charge6name)}--><!--{$charge6name|escape}-->
+<!--{/if}-->
+        </pre>
+    </aside>
+
+    <section class="fitting">
+        <section class="high">
+            <h3>High</h3>
+            <!--{if isset($high1name)}--><span class="slot"><!--{if $high1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high2name)}--><span class="slot"><!--{if $high2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high3name)}--><span class="slot"><!--{if $high3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high4name)}--><span class="slot"><!--{if $high4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high5name)}--><span class="slot"><!--{if $high5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high5typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high6name)}--><span class="slot"><!--{if $high6name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high6typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high7name)}--><span class="slot"><!--{if $high7name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high7typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($high8name)}--><span class="slot"><!--{if $high8name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{high8typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="med">
+            <h3>Med</h3>
+            <!--{if isset($mid1name)}--><span class="slot"><!--{if $mid1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid2name)}--><span class="slot"><!--{if $mid2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid3name)}--><span class="slot"><!--{if $mid3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid4name)}--><span class="slot"><!--{if $mid4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid5name)}--><span class="slot"><!--{if $mid5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid5typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid6name)}--><span class="slot"><!--{if $mid6name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid6typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid7name)}--><span class="slot"><!--{if $mid7name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid7typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($mid8name)}--><span class="slot"><!--{if $mid8name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{mid8typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="low">
+            <h3>Low</h3>
+            <!--{if isset($low1name)}--><span class="slot"><!--{if $low1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low2name)}--><span class="slot"><!--{if $low2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low3name)}--><span class="slot"><!--{if $low3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low4name)}--><span class="slot"><!--{if $low4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low5name)}--><span class="slot"><!--{if $low5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low5typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low6name)}--><span class="slot"><!--{if $low6name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low6typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low7name)}--><span class="slot"><!--{if $low7name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low7typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($low8name)}--><span class="slot"><!--{if $low8name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{low8typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="subsystem">
+            <h3>Sub</h3>
+            <!--{if isset($subsystem1name)}--><span class="slot"><!--{if $subsystem1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{subsystem1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($subsystem2name)}--><span class="slot"><!--{if $subsystem2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{subsystem2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($subsystem3name)}--><span class="slot"><!--{if $subsystem3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{subsystem3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($subsystem4name)}--><span class="slot"><!--{if $subsystem4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{subsystem4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($subsystem5name)}--><span class="slot"><!--{if $subsystem5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{subsystem5typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="drones">
+            <h3>Drn</h3>
+            <!--{if isset($drone1name)}--><span class="slot"><!--{if $drone1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{drone1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($drone2name)}--><span class="slot"><!--{if $drone2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{drone2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($drone3name)}--><span class="slot"><!--{if $drone3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{drone3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($drone4name)}--><span class="slot"><!--{if $drone4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{drone4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($drone5name)}--><span class="slot"><!--{if $drone5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{drone5typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="ammo">
+            <h3>Chrg</h3>
+            <!--{if isset($charge1name)}--><span class="slot"><!--{if $charge1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{charge1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($charge2name)}--><span class="slot"><!--{if $charge2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{charge2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($charge3name)}--><span class="slot"><!--{if $charge3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{charge3typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($charge4name)}--><span class="slot"><!--{if $charge4name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{charge4typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($charge5name)}--><span class="slot"><!--{if $charge5name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{charge5typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+        <section class="rig">
+            <h3>Rigs</h3>
+            <!--{if isset($rig1name)}--><span class="slot"><!--{if $rig1name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{rig1typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($rig2name)}--><span class="slot"><!--{if $rig2name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{rig2typeID|escape}-->_64.png" /></span><!--{/if}-->
+            <!--{if isset($rig3name)}--><span class="slot"><!--{if $rig3name == "open"}--><!--{else}--><img src="http://image.eveonline.com/Type/<!--{rig3typeID|escape}-->_64.png" /></span><!--{/if}-->
+        </section>
+    </section>
+    <section class="details">
+        <dl>
+            <dt>Fitting Difficulty</dt>
+            <dd>
+                <!--{if $difficulty > 0}--><span></span><!--{/if}-->
+                <!--{if $difficulty > 1}--><span></span><!--{/if}-->
+                <!--{if $difficulty > 2}--><span></span><!--{/if}-->
+                <!--{if $difficulty > 3}--><span></span><!--{/if}-->
+                <!--{if $difficulty > 4}--><span></span><!--{/if}-->
+            </dd>
+            <dt>EVE Release</dt><dd><!--{$version|escape}--></dd>
+        </dl>
+        <nav>
+            <a href="#eft">EFT</a>
+            <a href="#notes">Notes</a>
+            <a href="#cargo" class="current">Cargo</a>
+        </nav>
+    </section>
+</article>
+<script type="text/javascript">
+    (function() {
+        function onTabLinkClick(e) {
+            e.preventDefault();
+            var a = e.target.parentElement.parentElement.parentElement;
+            var sections = a.querySelectorAll(':scope > aside');
+            for (var k=0; k<sections.length; k++) {
+                var section = sections[k];
+                if (('#' + section.className) !== e.target.getAttribute('href')) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            }
+            var tabLinks = fitting.querySelectorAll('nav a');
+            for(var j=0; j<tabLinks.length; j++) {
+                tabLinks[j].className="";
+            }
+            e.target.className="current";
+        }
+
+        var fittings = document.querySelectorAll("article#<!--{$uniqID}-->");
+        for (var i=0; i<fittings.length; i++) {
+            var fitting = fittings[i];
+
+            var sections = fitting.querySelectorAll(':scope > aside');
+            for (var k=0; k<sections.length; k++) {
+                sections[k].style.display = 'none';
+            }
+
+            var tabLinks = fitting.querySelectorAll('nav a');
+            for(var j=0; j<tabLinks.length; j++) {
+                tabLinks[j].addEventListener('click', onTabLinkClick);
+                if (tabLinks[j].className === 'current') {
+                    fitting.querySelector('aside.' + tabLinks[j].getAttribute('href').substr(1)).style.display = 'block';
+                }
+            }
+        }
+    })();
+</script>
+<style type="text/css">
+article { position: relative; }
+
+article * {
+    color: #1f1f1f;
+    border: 0 solid #aaa;
+    /* font-size: 14px; */
+    /* font-weight: normal; */
+}
+
+article:before, article:after { content: " "; display: table; }
+article:after { clear: both; }
+
+article.fitting { border: 1px solid;max-width: 750px;/* max-height: 300px; */ padding: 0;}
+
+article.fitting header { border-bottom-width: 1px; padding: 5px; margin: 0; height: 40px; line-height: 40px; vertical-align: middle; text-align: center }
+article.fitting header > * { display: inline-block; font-size: 18px; line-height: 40px; vertical-align: middle; padding: 0; margin: 0;}
+article.fitting header h1:after { content: ": "; }
+article.fitting header .icon { width: 32px; height: 32px; margin: 4px; }
+article.fitting header .icon img { width: 32px; height: 32px; }
+article.fitting header .icon.usage { float: left; }
+article.fitting header .icon.reimbursement { float: right; }
+article.fitting header .doctrine { float: right; }
+
+article.fitting aside {
+    border-width: 1px;
+    width: 280px;
+    min-height: 200px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+article.fitting aside h3 {
+    font-weight: normal;
+    font-size: 12px;
+    padding: 5px;
+    margin: 0;
+    border-bottom-width: 1px;
+}
+article.fitting aside pre {
+    font-size: 11px;
+    padding: 5px;
+    margin: 0;
+}
+
+article.fitting > section { overflow-y: auto; overflow-x: hidden; box-sizing: border-box; margin-top: 5px;}
+
+article.fitting section.fitting section { margin-bottom: 5px; }
+article.fitting section.fitting section > * { height: 30px; line-height: 30px; font-size: 18px; vertical-align: middle; margin: 0; display: inline-block; }
+article.fitting section.fitting section h3 {
+    transform: rotate(-90deg);
+    font-weight: normal;
+    font-size: 10px;
+    border-width: 1px;
+    height: 18px;
+    width: 30px;
+    display: inline-block;
+    line-height: 18px;
+    text-align: center;
+    position: relative;
+    left: -1px;
+    margin-right: -6px;
+    text-transform: uppercase;
+}
+
+article.fitting section.fitting section span {
+    width: 30px;
+    border-width: 1px;
+    background: no-repeat center center;
+    background-size: 30px;
+}
+
+article.fitting section.fitting section.high h3,
+article.fitting section.fitting section.med h3,
+article.fitting section.fitting section.low h3 {
+    width: 46px;
+    margin-right: -22px;
+    left: -9px;
+    font-size: 13px;
+}
+
+article.fitting section.fitting section.high span,
+article.fitting section.fitting section.med span,
+article.fitting section.fitting section.low span {
+    width: 46px;
+    height: 46px;
+    background-size: 48px;
+}
+
+article.fitting section.fitting section.high span:empty { background-image: url('high.png'); }
+article.fitting section.fitting section.med span:empty { background-image: url('med.png'); }
+article.fitting section.fitting section.low span:empty { background-image: url('low.png'); }
+article.fitting section.fitting section.rig span:empty { background-image: url('rig.png'); }
+article.fitting section.fitting section.subsystem span:nth-of-type(1):empty { background-image: url('sub_1.png'); }
+article.fitting section.fitting section.subsystem span:nth-of-type(2):empty { background-image: url('sub_2.png'); }
+article.fitting section.fitting section.subsystem span:nth-of-type(3):empty { background-image: url('sub_3.png'); }
+article.fitting section.fitting section.subsystem span:nth-of-type(4):empty { background-image: url('sub_4.png'); }
+article.fitting section.fitting section.subsystem span:nth-of-type(5):empty { background-image: url('sub_5.png'); }
+
+section.details {
+    position: absolute;
+    top: 210px;
+    left: 261px;
+    font-size: 10pt;
+    width: 185px;
+    padding: 0;
+    margin: 0;
+}
+section.details dl {
+    margin: 0;
+    padding: 0;
+}
+section.details dl > * {
+    border-width: 1px;
+    display: block;
+    width: 100px;
+    padding: 3px;
+    margin: 0 0 5px 0;
+    height: 14px;
+    float: left;
+}
+section.details dd {
+    border-left-width: 0;
+    width: 70px;
+}
+section.details dd span {
+    width: 8px;
+    background: #1f1f1f;
+    height: 14px;
+    display: block;
+    float: left;
+    margin-right: 2px;
+}
+
+nav {}
+
+nav a {
+    border-width: 1px;
+    text-decoration: none;
+    padding: 3px;
+    display: block;
+    float: right;
+    margin-left: 5px;
+}
+
+nav a.current {
+    background: #f1f1f1;
+}
+</style>
+</includeonly>

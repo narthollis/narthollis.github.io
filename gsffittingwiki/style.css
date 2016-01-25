@@ -22,7 +22,7 @@ article.fitting header h1:after { content: ": "; }
 article.fitting header .icon { width: 32px; height: 32px; margin: 4px; }
 article.fitting header .icon img { width: 32px; height: 32px; }
 article.fitting header .icon.usage { float: left; }
-article.fitting header .icon.rembursment { float: right; }
+article.fitting header .icon.reimbursement { float: right; }
 article.fitting header .doctrine { float: right; }
 
 article.fitting aside {
