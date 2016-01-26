@@ -1,8 +1,38 @@
+<noinclude>
+<pre>
+{{#widget:ShipFitting
+| ship=
+| shipTypeID=
+| fitName=
+| high1name=
+| high1typeID=
+| mid1name=
+| mid1typeID=
+| low1name=
+| low1typeID=
+| subsystem1name=
+| subsystem1typeID=
+| drone1name=
+| drone1typeID=
+| charge1name=
+| charge1typeID=
+| rig1name=
+| rig1typeID=
+| difficulty=
+| version=
+| notes=
+| groups.name=http://icon/url
+| cargo=
+}}
+</pre>
+groups.name can be repeated for each group you this fitting is for, the name segment should be replaced with the groups name, eg. group.ArseholeSquad=http://url/for/arseholesquadbee
+cargo can be repeated for as many items as you wish to display in the cargo
+</noinclude>
 <includeonly>
 <!--{assign var=uniqID value="fitting"|cat:$smarty.now}-->
 <article class="fitting" id="<!--{$uniqID}-->">
     <header>
-        <!--{foreach from=$groups key=url item=name}-->
+        <!--{foreach from=$groups key=name item=url}-->
         <span class="icon usage"><img src="<!--{$url|escape:'url'}-->" title="<!--{$name|escape}-->" /></span>
         <!--{/foreach}-->
         <h1><!--{$ship|escape}--></h1>
