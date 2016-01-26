@@ -1,5 +1,5 @@
 <includeonly>
-<!--{assign var=uniqID value="fitting" . $smarty.now}-->
+<!--{assign var=uniqID value="fitting"|cat:$smarty.now}-->
 <article class="fitting" id="<!--{$uniqID}-->">
     <header>
         <!--{foreach from=$groups key=url item=name}-->
@@ -330,13 +330,26 @@ section.details dd {
     border-left-width: 0;
     width: 70px;
 }
-section.details dd span {
+section.details dd div {
+    width: 51px;
+    margin: auto;
+    border-width: 1px;
+    height: 14px;
+}
+section.details dd div span {
     width: 8px;
     background: #1f1f1f;
-    height: 14px;
+    height: 12px;
     display: block;
     float: left;
     margin-right: 2px;
+    margin-top: 1px;
+}
+section.details dd div span:first-child {
+    margin-left: 1px;
+}
+section.details dd div span:nth-child(5) {
+    background: red;
 }
 
 nav {}
