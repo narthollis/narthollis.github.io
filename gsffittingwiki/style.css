@@ -132,17 +132,17 @@ section.details dd {
 section.details dd div {
     width: 51px;
     margin: auto;
-    /* padding: 0 2px 0 0; */
     border-width: 1px;
     height: 14px;
 }
 section.details dd span {
     width: 8px;
     background: #1f1f1f;
-    height: 14px;
+    height: 12px;
     display: block;
     float: left;
     margin-right: 2px;
+    margin-top: 1px;
 }
 section.details dd span:first-child {
     margin-left: 1px;
