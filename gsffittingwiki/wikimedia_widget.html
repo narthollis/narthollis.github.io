@@ -23,58 +23,59 @@
     </aside>
     <aside class="eft">
         <h3>EFT</h3>
-        <pre>[<!--{$ship|escape}-->, <!--{$fitName|escape}-->]
-<!--{if isset($high1name)}--><!--{if $high1name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high1name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high2name)}--><!--{if $high2name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high2name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high3name)}--><!--{if $high3name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high3name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high4name)}--><!--{if $high4name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high4name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high5name)}--><!--{if $high5name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high5name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high6name)}--><!--{if $high6name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high6name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high7name)}--><!--{if $high7name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high7name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($high8name)}--><!--{if $high8name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high8name|escape}--><!--{/if}-->
+        <pre>[<!--{$ship|escape}-->, <!--{$fitName|escape}-->]<br/>
+<!--{if isset($high1name)}--><!--{if $high1name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high1name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high2name)}--><!--{if $high2name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high2name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high3name)}--><!--{if $high3name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high3name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high4name)}--><!--{if $high4name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high4name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high5name)}--><!--{if $high5name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high5name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high6name)}--><!--{if $high6name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high6name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high7name)}--><!--{if $high7name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high7name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($high8name)}--><!--{if $high8name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high8name|escape}--><!--{/if}--><br/><!--{/if}-->
+<br/>
+<!--{if isset($mid1name)}--><!--{if $mid1name == "open"}-->[Empty mid Slot]<!--{else}--><!--{$mid1name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid2name)}--><!--{if $mid2name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid2name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid3name)}--><!--{if $mid3name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid3name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid4name)}--><!--{if $mid4name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid4name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid5name)}--><!--{if $mid5name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid5name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid6name)}--><!--{if $mid6name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid6name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid7name)}--><!--{if $mid7name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid7name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($mid8name)}--><!--{if $mid8name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid8name|escape}--><!--{/if}--><br/><!--{/if}-->
+<br/>
+<!--{if isset($low1name)}--><!--{if $low1name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low1name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low2name)}--><!--{if $low2name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low2name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low3name)}--><!--{if $low3name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low3name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low4name)}--><!--{if $low4name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low4name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low5name)}--><!--{if $low5name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low5name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low6name)}--><!--{if $low6name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low6name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low7name)}--><!--{if $low7name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low7name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}--><br/><!--{/if}-->
+<br/>
+<!--{if isset($subsystem1name)}-->
+            <!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}--><br/><!--{/if}-->
+            <!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}--><br/><!--{/if}-->
+            <!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}--><br/><!--{/if}-->
+            <!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}--><br/><!--{/if}-->
+            <!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}--><br/><!--{/if}-->
+<br/>
 <!--{/if}-->
-<!--{if isset($mid1name)}--><!--{if $mid1name == "open"}-->[Empty mid Slot]<!--{else}--><!--{$mid1name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid2name)}--><!--{if $mid2name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid2name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid3name)}--><!--{if $mid3name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid3name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid4name)}--><!--{if $mid4name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid4name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid5name)}--><!--{if $mid5name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid5name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid6name)}--><!--{if $mid6name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid6name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid7name)}--><!--{if $mid7name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid7name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($mid8name)}--><!--{if $mid8name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid8name|escape}--><!--{/if}-->
-<!--{/if}-->
-<!--{if isset($low1name)}--><!--{if $low1name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low1name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low2name)}--><!--{if $low2name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low2name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low3name)}--><!--{if $low3name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low3name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low4name)}--><!--{if $low4name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low4name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low5name)}--><!--{if $low5name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low5name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low6name)}--><!--{if $low6name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low6name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low7name)}--><!--{if $low7name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low7name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}-->
-<!--{/if}-->
-<!--{if isset($subsystem1name)}--><!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}-->
-<!--{/if}-->
-<!--{/if}--><!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}-->
-<!--{/if}--><!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}-->
-<!--{/if}-->
-<!--{if isset($drone1name)}--><!--{$drone1name|escape}-->
-<!--{/if}--><!--{if isset($drone2name)}--><!--{$drone2name|escape}-->
-<!--{/if}--><!--{if isset($drone3name)}--><!--{$drone3name|escape}-->
-<!--{/if}--><!--{if isset($drone4name)}--><!--{$drone4name|escape}-->
-<!--{/if}--><!--{if isset($drone5name)}--><!--{$drone5name|escape}-->
-<!--{/if}--><!--{if isset($drone6name)}--><!--{$drone6name|escape}-->
-<!--{/if}-->
-<!--{if isset($charge1name)}--><!--{$charge1name|escape}-->
-<!--{/if}--><!--{if isset($charge2name)}--><!--{$charge2name|escape}-->
-<!--{/if}--><!--{if isset($charge3name)}--><!--{$charge3name|escape}-->
-<!--{/if}--><!--{if isset($charge4name)}--><!--{$charge4name|escape}-->
-<!--{/if}--><!--{if isset($charge5name)}--><!--{$charge5name|escape}-->
-<!--{/if}--><!--{if isset($charge6name)}--><!--{$charge6name|escape}-->
-<!--{/if}-->
+<!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}--><br/><!--{/if}-->
+<br/>
+<!--{if isset($drone1name)}--><!--{$drone1name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone2name)}--><!--{$drone2name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone3name)}--><!--{$drone3name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone4name)}--><!--{$drone4name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone5name)}--><!--{$drone5name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone6name)}--><!--{$drone6name|escape}--><br/><!--{/if}-->
+<br/>
+<!--{if isset($charge1name)}--><!--{$charge1name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge2name)}--><!--{$charge2name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge3name)}--><!--{$charge3name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge4name)}--><!--{$charge4name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge5name)}--><!--{$charge5name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge6name)}--><!--{$charge6name|escape}--><br/><!--{/if}-->
         </pre>
     </aside>
 
