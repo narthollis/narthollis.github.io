@@ -61,8 +61,7 @@ cargo can be repeated for as many items as you wish to display in the cargo
 <!--{if isset($high5name)}--><!--{if $high5name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high5name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($high6name)}--><!--{if $high6name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high6name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($high7name)}--><!--{if $high7name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high7name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($high8name)}--><!--{if $high8name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high8name|escape}--><!--{/if}--><br/><!--{/if}-->
-<br/>
+<!--{if isset($high8name)}--><!--{if $high8name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high8name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
 <!--{if isset($mid1name)}--><!--{if $mid1name == "open"}-->[Empty mid Slot]<!--{else}--><!--{$mid1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($mid2name)}--><!--{if $mid2name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid2name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($mid3name)}--><!--{if $mid3name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid3name|escape}--><!--{/if}--><br/><!--{/if}-->
@@ -70,8 +69,7 @@ cargo can be repeated for as many items as you wish to display in the cargo
 <!--{if isset($mid5name)}--><!--{if $mid5name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid5name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($mid6name)}--><!--{if $mid6name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid6name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($mid7name)}--><!--{if $mid7name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid7name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($mid8name)}--><!--{if $mid8name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid8name|escape}--><!--{/if}--><br/><!--{/if}-->
-<br/>
+<!--{if isset($mid8name)}--><!--{if $mid8name == "open"}-->[Empty Med Slot]<!--{else}--><!--{$mid8name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
 <!--{if isset($low1name)}--><!--{if $low1name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low2name)}--><!--{if $low2name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low2name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low3name)}--><!--{if $low3name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low3name|escape}--><!--{/if}--><br/><!--{/if}-->
@@ -79,34 +77,28 @@ cargo can be repeated for as many items as you wish to display in the cargo
 <!--{if isset($low5name)}--><!--{if $low5name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low5name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low6name)}--><!--{if $low6name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low6name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low7name)}--><!--{if $low7name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low7name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}--><br/><!--{/if}-->
-<br/>
-<!--{if isset($subsystem1name)}-->
-            <!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}--><br/><!--{/if}-->
-            <!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}--><br/><!--{/if}-->
-            <!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}--><br/><!--{/if}-->
-            <!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}--><br/><!--{/if}-->
-            <!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}--><br/><!--{/if}-->
-<br/>
-<!--{/if}-->
+<!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
+<!--{if isset($subsystem1name)} || isset($subsystem2name)} || isset($subsystem3name)} || isset($subsystem4name)} || isset($subsystem5name)}--><!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}--><br/><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}--><br/><!--{/if}-->
-<br/>
+<!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
 <!--{if isset($drone1name)}--><!--{$drone1name|escape}--><br/><!--{/if}-->
 <!--{if isset($drone2name)}--><!--{$drone2name|escape}--><br/><!--{/if}-->
 <!--{if isset($drone3name)}--><!--{$drone3name|escape}--><br/><!--{/if}-->
 <!--{if isset($drone4name)}--><!--{$drone4name|escape}--><br/><!--{/if}-->
 <!--{if isset($drone5name)}--><!--{$drone5name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone6name)}--><!--{$drone6name|escape}--><br/><!--{/if}-->
-<br/>
+<!--{if isset($drone6name)}--><!--{$drone6name|escape}--><br/><!--{/if}--><br/>
 <!--{if isset($charge1name)}--><!--{$charge1name|escape}--><br/><!--{/if}-->
 <!--{if isset($charge2name)}--><!--{$charge2name|escape}--><br/><!--{/if}-->
 <!--{if isset($charge3name)}--><!--{$charge3name|escape}--><br/><!--{/if}-->
 <!--{if isset($charge4name)}--><!--{$charge4name|escape}--><br/><!--{/if}-->
 <!--{if isset($charge5name)}--><!--{$charge5name|escape}--><br/><!--{/if}-->
 <!--{if isset($charge6name)}--><!--{$charge6name|escape}--><br/><!--{/if}-->
-        </pre>
+</pre>
     </aside>
 
     <section class="fitting">
@@ -368,9 +360,9 @@ article.fitting section.details dd, section.details dt {
     width: 100px;
     padding: 3px;
     margin: 0 0 5px 0;
-    height: 20px;
+    height: 22px;
     float: left;
-    font-size: 10pt;
+    font-size: 10px;
     font-weight: normal;
     overflow: hidden;
     text-overflow: ellipsis;
