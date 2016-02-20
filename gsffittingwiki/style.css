@@ -1,18 +1,15 @@
-body {
- font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
-}
 
-article { position: relative; }
+article.fitting { position: relative; }
 
-article * {
-    color: #1f1f1f;
+article.fitting * {
+    /*color: #1f1f1f;*/
     border: 0 solid #aaa;
     /* font-size: 14px; */
     /* font-weight: normal; */
 }
 
-article:before, article:after { content: " "; display: table; }
-article:after { clear: both; }
+article.fitting:before, article:after { content: " "; display: table; }
+article.fitting:after { clear: both; }
 
 article.fitting { border: 1px solid;max-width: 750px;/* max-height: 300px; */ padding: 0;}
 
@@ -43,13 +40,14 @@ article.fitting aside h3 {
     margin: 0;
     border-bottom-width: 1px;
 }
-article.fitting aside pre {
+article.fitting aside p {
+    font-family: monospace;
     font-size: 11px;
     padding: 5px;
     margin: 0;
 }
 
-article.fitting > section { overflow-y: auto; overflow-x: hidden; box-sizing: border-box; margin-top: 5px;}
+article.fitting > section { overflow-y: auto; overflow-x: hidden; box-sizing: border-box; margin-top: 5px; padding-bottom: 10px; }
 
 article.fitting section.fitting section { margin-bottom: 5px; }
 article.fitting section.fitting section > * { height: 30px; line-height: 30px; font-size: 18px; vertical-align: middle; margin: 0; display: inline-block; }
@@ -76,6 +74,11 @@ article.fitting section.fitting section span {
     background-size: 30px;
 }
 
+article.fitting section.fitting section span img {
+    width: 30px;
+    height: 30px;
+    vertical-align: baseline;
+}
 article.fitting section.fitting section.high h3,
 article.fitting section.fitting section.med h3,
 article.fitting section.fitting section.low h3 {
@@ -92,6 +95,12 @@ article.fitting section.fitting section.low span {
     height: 46px;
     background-size: 48px;
 }
+article.fitting section.fitting section.high span img,
+article.fitting section.fitting section.med span img,
+article.fitting section.fitting section.low span img {
+    width: 46px;
+    height: 46px;
+}
 
 article.fitting section.fitting section.high span:empty { background-image: url('high.png'); }
 article.fitting section.fitting section.med span:empty { background-image: url('med.png'); }
@@ -103,7 +112,7 @@ article.fitting section.fitting section.subsystem span:nth-of-type(3):empty { ba
 article.fitting section.fitting section.subsystem span:nth-of-type(4):empty { background-image: url('sub_4.png'); }
 article.fitting section.fitting section.subsystem span:nth-of-type(5):empty { background-image: url('sub_5.png'); }
 
-section.details {
+article.fitting section.details {
     position: absolute;
     top: 210px;
     left: 261px;
@@ -112,30 +121,35 @@ section.details {
     padding: 0;
     margin: 0;
 }
-section.details dl {
+article.fitting section.details dl {
     margin: 0;
     padding: 0;
 }
-section.details dl > * {
+article.fitting section.details dd, section.details dt {
     border-width: 1px;
     display: block;
     width: 100px;
     padding: 3px;
     margin: 0 0 5px 0;
-    height: 14px;
+    height: 22px;
     float: left;
+    font-size: 10px;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-section.details dd {
+article.fitting section.details dl > dd {
     border-left-width: 0;
     width: 70px;
 }
-section.details dd div {
+article.fitting section.details dd div {
     width: 51px;
     margin: auto;
     border-width: 1px;
     height: 14px;
 }
-section.details dd span {
+article.fitting section.details dd div span {
     width: 8px;
     background: #1f1f1f;
     height: 12px;
@@ -144,16 +158,16 @@ section.details dd span {
     margin-right: 2px;
     margin-top: 1px;
 }
-section.details dd span:first-child {
+article.fitting section.details dd div span:first-child {
     margin-left: 1px;
 }
-section.details dd span:last-child {
+article.fitting section.details dd div span:nth-child(5) {
     background: red;
 }
 
-nav {}
+article.fitting nav {}
 
-nav a {
+article.fitting nav a {
     border-width: 1px;
     text-decoration: none;
     padding: 3px;
@@ -162,6 +176,6 @@ nav a {
     margin-left: 5px;
 }
 
-nav a.current {
+article.fitting nav a.current {
     background: #f1f1f1;
 }
