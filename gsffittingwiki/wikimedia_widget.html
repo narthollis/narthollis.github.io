@@ -53,7 +53,7 @@ cargo can be repeated for as many items as you wish to display in the cargo
     </aside>
     <aside class="eft">
         <h3>EFT</h3>
-        <pre>[<!--{$ship|escape}-->, <!--{$fitName|escape}-->]<br/>
+        <p>[<!--{$ship|escape}-->, <!--{$fitName|escape}-->]<br/>
 <!--{if isset($high1name)}--><!--{if $high1name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($high2name)}--><!--{if $high2name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high2name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($high3name)}--><!--{if $high3name == "open"}-->[Empty High Slot]<!--{else}--><!--{$high3name|escape}--><!--{/if}--><br/><!--{/if}-->
@@ -86,19 +86,19 @@ cargo can be repeated for as many items as you wish to display in the cargo
 <!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
-<!--{if isset($drone1name)}--><!--{$drone1name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone2name)}--><!--{$drone2name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone3name)}--><!--{$drone3name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone4name)}--><!--{$drone4name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone5name)}--><!--{$drone5name|escape}--><br/><!--{/if}-->
-<!--{if isset($drone6name)}--><!--{$drone6name|escape}--><br/><!--{/if}--><br/>
-<!--{if isset($charge1name)}--><!--{$charge1name|escape}--><br/><!--{/if}-->
-<!--{if isset($charge2name)}--><!--{$charge2name|escape}--><br/><!--{/if}-->
-<!--{if isset($charge3name)}--><!--{$charge3name|escape}--><br/><!--{/if}-->
-<!--{if isset($charge4name)}--><!--{$charge4name|escape}--><br/><!--{/if}-->
-<!--{if isset($charge5name)}--><!--{$charge5name|escape}--><br/><!--{/if}-->
-<!--{if isset($charge6name)}--><!--{$charge6name|escape}--><br/><!--{/if}-->
-</pre>
+<!--{if isset($drone1name) and ($drone1name != "open")}--><!--{$drone1name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone2name) and ($drone2name != "open")}--><!--{$drone2name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone3name) and ($drone3name != "open")}--><!--{$drone3name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone4name) and ($drone4name != "open")}--><!--{$drone4name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone5name) and ($drone5name != "open")}--><!--{$drone5name|escape}--><br/><!--{/if}-->
+<!--{if isset($drone6name) and ($drone6name != "open")}--><!--{$drone6name|escape}--><br/><!--{/if}--><br/>
+<!--{if isset($charge1name) and ($charge1name != "open")}--><!--{$charge1name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge2name) and ($charge2name != "open")}--><!--{$charge2name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge3name) and ($charge3name != "open")}--><!--{$charge3name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge4name) and ($charge4name != "open")}--><!--{$charge4name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge5name) and ($charge5name != "open")}--><!--{$charge5name|escape}--><br/><!--{/if}-->
+<!--{if isset($charge6name) and ($charge6name != "open")}--><!--{$charge6name|escape}--><br/><!--{/if}-->
+</p>
     </aside>
 
     <section class="fitting">
@@ -271,7 +271,8 @@ article.fitting aside h3 {
     margin: 0;
     border-bottom-width: 1px;
 }
-article.fitting aside pre {
+article.fitting aside p {
+    font-family: monospace;
     font-size: 11px;
     padding: 5px;
     margin: 0;
@@ -307,6 +308,7 @@ article.fitting section.fitting section span {
 article.fitting section.fitting section span img {
     width: 30px;
     height: 30px;
+    vertical-align: baseline;
 }
 article.fitting section.fitting section.high h3,
 article.fitting section.fitting section.med h3,
