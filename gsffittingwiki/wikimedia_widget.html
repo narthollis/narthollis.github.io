@@ -78,11 +78,11 @@ cargo can be repeated for as many items as you wish to display in the cargo
 <!--{if isset($low6name)}--><!--{if $low6name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low6name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low7name)}--><!--{if $low7name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low7name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($low8name)}--><!--{if $low8name == "open"}-->[Empty Low Slot]<!--{else}--><!--{$low8name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
-<!--{if isset($subsystem1name) || isset($subsystem2name) || isset($subsystem3name) || isset($subsystem4name) || isset($subsystem5name)}--><!--{if isset($subsystem1name)}--><!--{if $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($subsystem2name)}--><!--{if $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($subsystem3name)}--><!--{if $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($subsystem4name)}--><!--{if $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}--><br/><!--{/if}-->
-<!--{if isset($subsystem5name)}--><!--{if $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}--><br/><!--{/if}--><br/><!--{/if}-->
+<!--{if isset($subsystem1name) or isset($subsystem2name) or isset($subsystem3name) or isset($subsystem4name) or isset($subsystem5name)}--><!--{if !isset($subsystem1name) or $subsystem1name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem1name|escape}--><!--{/if}--><br/>
+<!--{if !isset($subsystem2name) or $subsystem2name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem2name|escape}--><!--{/if}--><br/>
+<!--{if !isset($subsystem3name) or $subsystem3name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem3name|escape}--><!--{/if}--><br/>
+<!--{if !isset($subsystem4name) or $subsystem4name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem4name|escape}--><!--{/if}--><br/>
+<!--{if !isset($subsystem5name) or $subsystem5name == "open"}-->[Empty Subsystem Slot]<!--{else}--><!--{$subsystem5name|escape}--><!--{/if}--><br/><br/><!--{/if}-->
 <!--{if isset($rig1name)}--><!--{if $rig1name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig1name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig2name)}--><!--{if $rig2name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig2name|escape}--><!--{/if}--><br/><!--{/if}-->
 <!--{if isset($rig3name)}--><!--{if $rig3name == "open"}-->[Empty Rig Slot]<!--{else}--><!--{$rig3name|escape}--><!--{/if}--><br/><!--{/if}--><br/>
