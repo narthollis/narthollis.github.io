@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EFT to Wiki</title>
+
+    <link type="text/css" rel="stylesheet" href="eft2wiki.css" />
+</head>
+<body>
+<form id="eftForm">
+    <section>
+        <label for="efttextarea">EFT Block</label>
+        <textarea id="efttextarea" required></textarea>
+    </section>
+    <section>
+        <label for="version">For EVE Version</label>
+        <input type="text" id="version" required />
+    </section>
+    <section>
+        <label for="difficulty">Fitting Difficultly</label>
+        <select id="difficulty">
+            <option value="1">Anyone can fly this - even on day 1</option>
+            <option value="2">If you have the ship trained you can fit this</option>
+            <option value="3">Fitting skills at least 4</option>
+            <option value="4">Perfect Fitting Skills, Maybe an Implant or Named Item</option>
+            <option value="5">Perfect Fitting Skills and Implants Required</option>
+        </select>
+    </section>
+    <section>
+        <label for="notes">Notes</label>
+        <textarea id="notes"></textarea>
+    </section>
+    <section class="group">
+        <section>
+            <label for="group_1_name">Group Name</label>
+            <input type="text" id="group_1_name">
+        </section>
+        <section>
+            <label for="group_1_icon">Icon URL</label>
+            <input type="text" id="group_1_icon" />
+        </section>
+    </section>
+    <section class="group">
+        <section>
+            <label for="group_2_name">Group Name</label>
+            <input type="text" id="group_2_name">
+        </section>
+        <section>
+            <label for="group_2_icon">Icon URL</label>
+            <input type="text" id="group_2_icon" />
+        </section>
+    </section>
+    <section class="group">
+        <section>
+            <label for="group_3_name">Group Name</label>
+            <input type="text" id="group_3_name">
+        </section>
+        <section>
+            <label for="group_3_icon">Icon URL</label>
+            <input type="text" id="group_3_icon" />
+        </section>
+    </section>
+    <section class="group">
+        <section>
+            <label for="group_4_name">Group Name</label>
+            <input type="text" id="group_4_name">
+        </section>
+        <section>
+            <label for="group_4_icon">Icon URL</label>
+            <input type="text" id="group_4_icon" />
+        </section>
+    </section>
+    <button type="submit" id="process">Process</button>
+</form>
+<output></output>
+
+<script type="text/javascript" src="eft2wiki-compiled.js"></script>
+</body>
+</html>
