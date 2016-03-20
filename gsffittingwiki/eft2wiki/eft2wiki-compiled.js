@@ -56,7 +56,8 @@
 
             names = names.substr(1, names.length - 1);
 
-            fetch('http://micro.evetoolkit.net/api/nameToID?names=' + names).then(this.fetchResolved.bind(this)).then(this.contentResolved.bind(this)).catch(function (ex) {
+            //fetch('http://micro.evetoolkit.net/api/nameToID?names=' + names).then(this.fetchResolved.bind(this)).then(this.contentResolved.bind(this)).catch(function (ex) {
+            fetch('https://afternoon-thicket-10156.herokuapp.com/api/nameToID?names=' + names).then(this.fetchResolved.bind(this)).then(this.contentResolved.bind(this)).catch(function (ex) {
                 console.log('parsing failed', ex);
             });
         }
