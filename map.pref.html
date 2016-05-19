@@ -103,11 +103,13 @@ function doPref() {
     
     let buttons = document.getElementsByTagName('button');
     for(let b of buttons) {
-        b.disabled = true;
+        if (!buttons.hasOwnProperty(i)) continue;
+        buttons[b].disabled = true;
     }
     let inputs = document.getElementsByTagName('input');
-    for(let b of inputs) {
-        b.disabled = true;
+    for(let b in inputs) {
+        if (!inputs.hasOwnProperty(i)) continue;
+        inputs[b].disabled = true;
     }
     
     let times = [];
@@ -152,11 +154,13 @@ function doPref() {
         thisOut.appendChild(makeLn(`doStuffWithDict Total: ${sumDict} milliseconds`));
         thisOut.appendChild(makeLn(`                Avg:   ${sumDict / ITTERATIONS} milliseconds`));
         
-        for(let b of buttons) {
-            b.disabled = false;
+        for(let b in buttons) {
+            if (!buttons.hasOwnProperty(i)) continue;
+            buttons[b].disabled = false;
         }
-        for(let b of inputs) {
-            b.disabled = false;
+        for(let b in inputs) {
+            if (!inputs.hasOwnProperty(i)) continue;
+            inputs[b].disabled = false;
         }
     }
     
@@ -171,8 +175,9 @@ function doPref() {
     document.getElementById('unique_keys_only').checked = UNIQUE_KEYS_ONLY;
     
     let inputs = document.getElementsByTagName('input');
-    for(let i of inputs) {
-        i.addEventListener('change', function() {
+    for(let i in inputs) {
+        if (!inputs.hasOwnProperty(i)) continue;
+        inputs[i].addEventListener('change', function() {
             document.getElementById('doprefbtn').disabled = true;
         });
     }
