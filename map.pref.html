@@ -73,28 +73,26 @@ function setup() {
     document.getElementById('doprefbtn').disabled = false;
 }
 
-function doStuffWithMap() {
+function doStuffWithMap(selectOrder) {
     let m = new Map();
     for (let i=0; i<ITEMS; i++) {
         m.set(keys[i], values[i]);
     }
-    for (let i=0; i<ITEMS; i++) {
-        let idx = Math.floor(Math.random() * ITEMS);
-        let t = m.get(keys[idx]);
-        console.assert(t === values[idx]);
+    for(let i in selectOrder) {
+        let t = m.get(keys[i]);
+        //console.assert(t === values[i]);
     }
 }
 
-function doStuffWithDict() {
+function doStuffWithDict(selectOrder) {
     let d = Object.create(null);
     for (let i=0; i<ITEMS; i++) {
         d[keys[i]] = values[i];
     }
     
-    for (let i=0; i<ITEMS; i++) {
-        let idx = Math.floor(Math.random() * ITEMS);
-        let t = d[keys[idx]];
-        console.assert(t === values[idx]);
+    for(let i in selectOrder) {
+        let t = d[keys[i]];
+        //console.assert(t === values[i]);
     }
 }
 
@@ -102,10 +100,15 @@ var TIMES;
 
 function reallyDoPref(i, update_cb, done_cb) {
     for(let j=0; j<1000; j++) {
+        let randomSelectOrder = [];
+        for (let j=0; j<ITEMS; j++) {
+            randomSelectOrder.push(Math.floor(Math.random() * ITEMS))
+        }
+    
         let t0 = performance.now();
-        doStuffWithMap();
+        doStuffWithMap(randomSelectOrder);
         let t1 = performance.now();
-        doStuffWithDict();
+        doStuffWithDict(randomSelectOrder);
         let t2 = performance.now();
         
         TIMES.push([t1-t0, t2-t1]);
