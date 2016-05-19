@@ -102,7 +102,7 @@ function doPref() {
     ITTERATIONS = parseInt(document.getElementById('itterations').value);
     
     let buttons = document.getElementsByTagName('button');
-    for(let b of buttons) {
+    for(let b in buttons) {
         if (!buttons.hasOwnProperty(i)) continue;
         buttons[b].disabled = true;
     }
