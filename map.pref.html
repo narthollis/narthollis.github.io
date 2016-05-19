@@ -98,6 +98,29 @@ function doStuffWithDict() {
     }
 }
 
+var TIMES;
+
+function reallyDoPref(i, update_cb, done_cb) {
+    for(let j=0; j<1000; j++) {
+        let t0 = performance.now();
+        doStuffWithMap();
+        let t1 = performance.now();
+        doStuffWithDict();
+        let t2 = performance.now();
+        
+        TIMES.push([t1-t0, t2-t1]);
+    }
+    
+    update_cb(i);
+    
+    i += 1000;
+    if (i < ITTERATIONS) {
+        setTimeout(function() { reallyDoPref(i, update_cb, done_cb); }, 0);
+    } else {
+        done_cb();
+    }
+}
+
 function doPref() {
     ITTERATIONS = parseInt(document.getElementById('itterations').value);
     
@@ -112,38 +135,22 @@ function doPref() {
         inputs[b].disabled = true;
     }
     
-    let times = [];
+    TIMES = [];
     
     let thisOut = document.createElement('pre');
     OUTPUT_ELM.appendChild(makeLn(`Running ${ITTERATIONS} with ${ITEMS} items, key size: ${KEY_SIZE}, value size: ${VALUE_SIZE}, unique keys only: ${UNIQUE_KEYS_ONLY}`));
     OUTPUT_ELM.appendChild(thisOut);
     
-    function reallyDoPref(i) {
-        for(let j=0; j<1000; j++) {
-            let t0 = performance.now();
-            doStuffWithMap();
-            let t1 = performance.now();
-            doStuffWithDict();
-            let t2 = performance.now();
-            
-            times.push([t1-t0, t2-t1]);
-        }
-        
+    function update(i) {        
         thisOut.innerHTML = '';
         thisOut.appendChild(makeLn('Itteration: ' + i + ' of ' + ITTERATIONS));
-        
-        if (i < ITTERATIONS) {
-            setTimeout(function() { reallyDoPref(i+1000); }, 0);
-        } else {
-            done();
-        }
     }
     
     function done() {
         let sumMap = 0;
         let sumDict = 0;
         
-        for(let itter of times) {
+        for(let itter of TIMES) {
             sumMap += itter[0];
             sumDict += itter[1];
         }
@@ -164,7 +171,7 @@ function doPref() {
         }
     }
     
-    setTimeout(function() { reallyDoPref(0); }, 100);
+    setTimeout(function() { reallyDoPref(0, update, done); }, 100);
 }
 
 (function() {
