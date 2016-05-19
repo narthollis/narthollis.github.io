@@ -194,6 +194,8 @@ function doPref() {
     
     let code = document.getElementsByTagName("script")[0].textContent;
     document.getElementById("code").appendChild(document.createTextNode(code.trim()));
+    
+    OUTPUT_ELM.appendChild(makeLn(window.navigator.userAgent));
 })();
 </script>
 </body>
