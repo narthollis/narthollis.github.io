@@ -3,7 +3,9 @@
 <head>
 <style>
  html, body { border: 0; margin: 0; padding: 0; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; }
+ pre { margin: 0; padding: 20px; }
  #code { width: 50%; position: absolute; top: 0; right: 0; background: #222; color: gray; padding: 20px; box-sizing: border-box; height: 100%; margin: 0; overflow: auto; }
+ #out > pre { padding: 0 0 0 40px; }
 </style>
 </head>
 <body>
@@ -16,8 +18,19 @@
         <label for="itterations">Itterations</label>
         <input type="number" id="itterations" />
     </div>
+    <div>
+        <label for="key_size">Key Size</label>
+        <input type="number" id="key_size" />
+    </div>
+    <div>
+        <label for="value_size">Value Size</label>
+        <input type="number" id="value_size" />
+    </div>
+    <div>
+        <label for="unique_keys_only"><input type="checkbox" id="unique_keys_only" />Unique Keys Only</label>
+    </div>
     <button onclick="setup()">Setup</button>
-    <button onclick="doPref()">Do Pref</button>
+    <button onclick="doPref()" disabled id="doprefbtn">Do Pref</button>
 </div>
 <pre id="out"></pre>
 <pre id="code"></pre>
@@ -26,16 +39,38 @@
 
 var ITEMS = 1000;
 var ITTERATIONS = 100000;
+var KEY_SIZE = 7;
+var VALUE_SIZE = 7;
+var UNIQUE_KEYS_ONLY = true;
 
 var keys = [];
 var values = [];
 
+var OUTPUT_ELM = document.getElementById("out");
+
+function makeLn(text) {
+    return document.createTextNode(text + "\r\n");
+}
+
 function setup() {
     ITEMS = parseInt(document.getElementById('items').value);
+    KEY_SIZE = parseInt(document.getElementById('key_size').value);
+    VALUE_SIZE = parseInt(document.getElementById('value_size').value);
+    UNIQUE_KEYS_ONLY = document.getElementById('unique_keys_only').checked;
+    
     for (let i=0; i<ITEMS; i++) {
-        keys.push(Math.random().toString(36).substring(7));
+        let key = Math.random().toString(36).substring(7);
+        if (UNIQUE_KEYS_ONLY) {
+            while(keys.indexOf(key) >= 0) {
+                key = Math.random().toString(36).substring(7);
+            }
+        }
+        keys.push(key);
         values.push(Math.random().toString(36).substring(7));
     }
+    
+    OUTPUT_ELM.appendChild(makeLn(`Setup with ${ITEMS} items, key size: ${KEY_SIZE}, value size: ${VALUE_SIZE}, unique keys only: ${UNIQUE_KEYS_ONLY}`));
+    document.getElementById('doprefbtn').disabled = false;
 }
 
 function doStuffWithMap() {
@@ -63,18 +98,23 @@ function doStuffWithDict() {
     }
 }
 
-function makeLn(text) {
-    let out = document.createElement('p');
-    out.appendChild(document.createTextNode(text));
-    return out;
-}
-
 function doPref() {
+    ITTERATIONS = parseInt(document.getElementById('itterations').value);
+    
+    let buttons = document.getElementsByTagName('button');
+    for(let b of buttons) {
+        b.disabled = true;
+    }
+    let inputs = document.getElementsByTagName('input');
+    for(let b of inputs) {
+        b.disabled = true;
+    }
+    
     let times = [];
     
-    let out = document.getElementById("out");
-    let thisOut = document.createElement('code');
-    out.appendChild(thisOut);
+    let thisOut = document.createElement('pre');
+    OUTPUT_ELM.appendChild(makeLn(`Running ${ITTERATIONS} with ${ITEMS} items, key size: ${KEY_SIZE}, value size: ${VALUE_SIZE}, unique keys only: ${UNIQUE_KEYS_ONLY}`));
+    OUTPUT_ELM.appendChild(thisOut);
     
     function reallyDoPref(i) {
         for(let j=0; j<1000; j++) {
@@ -106,19 +146,39 @@ function doPref() {
             sumDict += itter[1];
         }
         thisOut.innerHTML = '';
-        thisOut.appendChild(makeLn(ITTERATIONS + ' took ' + (sumMap + sumDict) + ' milliseconds'));
-        thisOut.appendChild(makeLn("Call to doStuffWithMap took " + sumMap + " milliseconds total."))
-        thisOut.appendChild(makeLn("Call to doStuffWithDict took " + sumDict + " milliseconds total."))
-        thisOut.appendChild(makeLn("Call to doStuffWithMap took " + (sumMap / ITTERATIONS) + " milliseconds average."))
-        thisOut.appendChild(makeLn("Call to doStuffWithDict took " + (sumDict / ITTERATIONS) + " milliseconds average."))
+        thisOut.appendChild(makeLn(`Total: ${sumMap + sumDict} milliseconds`));
+        thisOut.appendChild(makeLn(`doStuffWithMap  Total: ${sumMap} milliseconds`));
+        thisOut.appendChild(makeLn(`                Avg:   ${sumMap / ITTERATIONS} milliseconds`));
+        thisOut.appendChild(makeLn(`doStuffWithDict Total: ${sumDict} milliseconds`));
+        thisOut.appendChild(makeLn(`                Avg:   ${sumDict / ITTERATIONS} milliseconds`));
+        
+        for(let b of buttons) {
+            b.disabled = false;
+        }
+        for(let b of inputs) {
+            b.disabled = false;
+        }
     }
     
-    reallyDoPref(0);
+    setTimeout(function() { reallyDoPref(0); }, 100);
 }
 
-document.getElementById('items').value = ITEMS;
-document.getElementById('itterations').value = ITTERATIONS;
-document.getElementById("code").appendChild(document.createTextNode(document.getElementsByTagName("script")[0].innerText));
+(function() {
+    document.getElementById('items').value = ITEMS;
+    document.getElementById('itterations').value = ITTERATIONS;
+    document.getElementById('key_size').value = KEY_SIZE;
+    document.getElementById('value_size').value = VALUE_SIZE;
+    document.getElementById('unique_keys_only').checked = UNIQUE_KEYS_ONLY;
+    
+    let inputs = document.getElementsByTagName('input');
+    for(let i of inputs) {
+        i.addEventListener('change', function() {
+            document.getElementById('doprefbtn').disabled = true;
+        });
+    }
+    
+    document.getElementById("code").appendChild(document.createTextNode(document.getElementsByTagName("script")[0].innerText));
+})();
 </script>
 </body>
 </html>
