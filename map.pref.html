@@ -182,7 +182,8 @@ function doPref() {
         });
     }
     
-    document.getElementById("code").appendChild(document.createTextNode(document.getElementsByTagName("script")[0].textContent));
+    let code = document.getElementsByTagName("script")[0].textContent;
+    document.getElementById("code").appendChild(document.createTextNode(code.trim()));
 })();
 </script>
 </body>
