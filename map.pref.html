@@ -103,12 +103,12 @@ function doPref() {
     
     let buttons = document.getElementsByTagName('button');
     for(let b in buttons) {
-        if (!buttons.hasOwnProperty(i)) continue;
+        if (!buttons.hasOwnProperty(b)) continue;
         buttons[b].disabled = true;
     }
     let inputs = document.getElementsByTagName('input');
     for(let b in inputs) {
-        if (!inputs.hasOwnProperty(i)) continue;
+        if (!buttons.hasOwnProperty(b)) continue;
         inputs[b].disabled = true;
     }
     
@@ -155,11 +155,11 @@ function doPref() {
         thisOut.appendChild(makeLn(`                Avg:   ${sumDict / ITTERATIONS} milliseconds`));
         
         for(let b in buttons) {
-            if (!buttons.hasOwnProperty(i)) continue;
+            if (!buttons.hasOwnProperty(b)) continue;
             buttons[b].disabled = false;
         }
         for(let b in inputs) {
-            if (!inputs.hasOwnProperty(i)) continue;
+            if (!buttons.hasOwnProperty(b)) continue;
             inputs[b].disabled = false;
         }
     }
