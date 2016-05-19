@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+ html, body { border: 0; margin: 0; padding: 0; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; }
+ #code { width: 50%; position: absolute; top: 0; right: 0; background: #222; color: gray; padding: 20px; box-sizing: border-box; height: 100%; margin: 0; overflow: auto; }
+</style>
+</head>
+<body>
+<div>
+    <div>
+        <label for="items">Items</label>
+        <input type="number" id="items" />
+    </div>
+    <div>
+        <label for="itterations">Itterations</label>
+        <input type="number" id="itterations" />
+    </div>
+    <button onclick="setup()">Setup</button>
+    <button onclick="doPref()">Do Pref</button>
+</div>
+<pre id="out"></pre>
+<pre id="code"></pre>
+<script type="text/javascript">
+"use strict";
+
+var ITEMS = 1000;
+var ITTERATIONS = 100000;
+
+var keys = [];
+var values = [];
+
+function setup() {
+    ITEMS = parseInt(document.getElementById('items').value);
+    for (let i=0; i<ITEMS; i++) {
+        keys.push(Math.random().toString(36).substring(7));
+        values.push(Math.random().toString(36).substring(7));
+    }
+}
+
+function doStuffWithMap() {
+    let m = new Map();
+    for (let i=0; i<ITEMS; i++) {
+        m.set(keys[i], values[i]);
+    }
+    for (let i=0; i<ITEMS; i++) {
+        let idx = Math.floor(Math.random() * ITEMS);
+        let t = m.get(keys[idx]);
+        console.assert(t === values[idx]);
+    }
+}
+
+function doStuffWithDict() {
+    let d = Object.create(null);
+    for (let i=0; i<ITEMS; i++) {
+        d[keys[i]] = values[i];
+    }
+    
+    for (let i=0; i<ITEMS; i++) {
+        let idx = Math.floor(Math.random() * ITEMS);
+        let t = d[keys[idx]];
+        console.assert(t === values[idx]);
+    }
+}
+
+function makeLn(text) {
+    let out = document.createElement('p');
+    out.appendChild(document.createTextNode(text));
+    return out;
+}
+
+function doPref() {
+    let times = [];
+    
+    let out = document.getElementById("out");
+    let thisOut = document.createElement('code');
+    out.appendChild(thisOut);
+    
+    function reallyDoPref(i) {
+        for(let j=0; j<1000; j++) {
+            let t0 = performance.now();
+            doStuffWithMap();
+            let t1 = performance.now();
+            doStuffWithDict();
+            let t2 = performance.now();
+            
+            times.push([t1-t0, t2-t1]);
+        }
+        
+        thisOut.innerHTML = '';
+        thisOut.appendChild(makeLn('Itteration: ' + i + ' of ' + ITTERATIONS));
+        
+        if (i < ITTERATIONS) {
+            setTimeout(function() { reallyDoPref(i+1000); }, 0);
+        } else {
+            done();
+        }
+    }
+    
+    function done() {
+        let sumMap = 0;
+        let sumDict = 0;
+        
+        for(let itter of times) {
+            sumMap += itter[0];
+            sumDict += itter[1];
+        }
+        thisOut.innerHTML = '';
+        thisOut.appendChild(makeLn(ITTERATIONS + ' took ' + (sumMap + sumDict) + ' milliseconds'));
+        thisOut.appendChild(makeLn("Call to doStuffWithMap took " + sumMap + " milliseconds total."))
+        thisOut.appendChild(makeLn("Call to doStuffWithDict took " + sumDict + " milliseconds total."))
+        thisOut.appendChild(makeLn("Call to doStuffWithMap took " + (sumMap / ITTERATIONS) + " milliseconds average."))
+        thisOut.appendChild(makeLn("Call to doStuffWithDict took " + (sumDict / ITTERATIONS) + " milliseconds average."))
+    }
+    
+    reallyDoPref(0);
+}
+
+document.getElementById('items').value = ITEMS;
+document.getElementById('itterations').value = ITTERATIONS;
+document.getElementById("code").appendChild(document.createTextNode(document.getElementsByTagName("script")[0].innerText));
+</script>
+</body>
+</html>
