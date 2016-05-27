@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ html, body { border: 0; margin: 0; padding: 0; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; }
+ pre { margin: 0; padding: 20px; }
+ #code { width: 50%; position: absolute; top: 0; right: 0; background: #222; color: gray; padding: 20px; box-sizing: border-box; height: 100%; margin: 0; overflow: auto; }
+ #out > pre { padding: 0 0 0 40px; }
+</style>
+</head>
+<body>
+<div>
+    <div>
+        <label for="itterations">Itterations</label>
+        <input type="number" id="itterations" />
+    </div>
+    <button onclick="doPref()" disabled id="doprefbtn">Do Pref</button>
+</div>
+<pre id="out"></pre>
+<pre id="code"></pre>
+<script type="text/javascript">
+"use strict";
+var ITTERATIONS = 100000;
+var OUTPUT_ELM = document.getElementById("out");
+function makeLn(text) {
+    return document.createTextNode(text + "\r\n");
+}
+
+function forEachTest(t) {
+    for(let i=0;i<1000;i++) {
+      t.forEach(function(a,b) {
+        throw "What?";
+      });
+    }
+}
+function ofTest(t) {
+  for(let i=0;i<1000;i++) {
+    for(let i of t) {
+        throw "What?";
+    }
+  }
+}
+function ifSizeTest(t) {
+  for(let i=0;i<1000;i++) {
+    if(t.size !== 0) {
+        throw "What?";
+    }
+  }
+}
+function ifLengthTest(t) {
+  for(let i=0;i<1000;i++) {
+    if(t.length !== 0) {
+        throw "What?";
+    }
+  }
+}
+
+var TIMES;
+function reallyDoPref(i, update_cb, done_cb) {
+    let m = new Map();
+    let a = new Array();
+    let s = new Set();
+    
+    let t0 = performance.now();
+      forEachTest(m);
+    let t1 = performance.now();
+      forEachTest(s);
+    let t2 = performance.now();
+      forEachTest(a);
+    let t3 = performance.now();
+      ofTest(m);
+    let t4 = performance.now();
+      ofTest(s);
+    let t5 = performance.now();
+      ofTest(a);
+    let t6 = performance.now();
+      ifSizeTest(m);
+    let t7 = performance.now();
+      ifSizeTest(s);
+    let t8 = performance.now();
+      ifLengthTest(a);
+    
+    TIMES.push([t1-t0, t2-t1, t3-t2, t4-t3, t5-t4, t6-t5, t7-t6, t8-t7]);
+    
+    update_cb(i);
+    
+    i += 1000;
+    if (i < ITTERATIONS) {
+        setTimeout(function() { reallyDoPref(i, update_cb, done_cb); }, 0);
+    } else {
+        done_cb();
+    }
+}
+function doPref() {
+    ITTERATIONS = parseInt(document.getElementById('itterations').value);
+    
+    let buttons = document.getElementsByTagName('button');
+    for(let b in buttons) {
+        if (!buttons.hasOwnProperty(b)) continue;
+        buttons[b].disabled = true;
+    }
+    let inputs = document.getElementsByTagName('input');
+    for(let b in inputs) {
+        if (!buttons.hasOwnProperty(b)) continue;
+        inputs[b].disabled = true;
+    }
+    
+    TIMES = [];
+    
+    let thisOut = document.createElement('pre');
+    OUTPUT_ELM.appendChild(makeLn(`Running ${ITTERATIONS} with ${ITEMS} items, key size: ${KEY_SIZE}, value size: ${VALUE_SIZE}, unique keys only: ${UNIQUE_KEYS_ONLY}`));
+    OUTPUT_ELM.appendChild(thisOut);
+    
+    function update(i) {        
+        thisOut.innerHTML = '';
+        thisOut.appendChild(makeLn('Itteration: ' + i + ' of ' + ITTERATIONS));
+    }
+    
+    function done() {
+      let v = new Map([
+        [mapForEach, 0],
+        [setForEach, 0],
+        [arrayForEach, 0],
+        [mapOf, 0],
+        [setOf, 0],
+        [arrayOf, 0],
+        [mapSizeIf, 0],
+        [setSizeIf, 0],
+        [arrayLengthIf, 0]
+      ]);
+        
+        for(let itter of TIMES) {
+          let i = 0;
+          for(let key of v.keys()) {
+            v.set(v.get(key) + itter[i]);
+            i++;
+          }
+        }
+        thisOut.innerHTML = '';
+        for(let key of v.keys()) {
+          thisOut.appendChild(makeLn(`${keys}  Total: ${v.get(keys)} milliseconds`));
+          thisOut.appendChild(makeLn(`            Avg:   ${${v.get(keys)} / (ITTERATIONS*1000)} milliseconds`));
+        }
+        
+        for(let b in buttons) {
+            if (!buttons.hasOwnProperty(b)) continue;
+            buttons[b].disabled = false;
+        }
+        for(let b in inputs) {
+            if (!buttons.hasOwnProperty(b)) continue;
+            inputs[b].disabled = false;
+        }
+    }
+    
+    setTimeout(function() { reallyDoPref(0, update, done); }, 100);
+}
+(function() {
+    document.getElementById('itterations').value = ITTERATIONS;
+    
+    let inputs = document.getElementsByTagName('input');
+    for(let i in inputs) {
+        if (!inputs.hasOwnProperty(i)) continue;
+        inputs[i].addEventListener('change', function() {
+            document.getElementById('doprefbtn').disabled = true;
+        });
+    }
+    
+    let code = document.getElementsByTagName("script")[0].textContent;
+    document.getElementById("code").appendChild(document.createTextNode(code.trim()));
+    
+    OUTPUT_ELM.appendChild(makeLn(window.navigator.userAgent));
+})();
+</script>
+</body>
+</html>
