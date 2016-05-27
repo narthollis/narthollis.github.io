@@ -132,7 +132,7 @@ function doPref() {
         for(let itter of TIMES) {
           let i = 0;
           for(let key of v.keys()) {
-            v.set(v.get(key) + itter[i]);
+            v.set(key, v.get(key) + itter[i]);
             i++;
           }
         }
