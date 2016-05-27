@@ -139,7 +139,7 @@ function doPref() {
         thisOut.innerHTML = '';
         for(let key of v.keys()) {
           thisOut.appendChild(makeLn(`${keys}  Total: ${v.get(keys)} milliseconds`));
-          thisOut.appendChild(makeLn(`            Avg:   ${v.get(keys) / (ITTERATIONS*1000)} milliseconds`));
+          thisOut.appendChild(makeLn(`            Avg:   ${v.get(keys) / ITTERATIONS} milliseconds`));
         }
         
         for(let b in buttons) {
