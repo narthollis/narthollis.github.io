@@ -79,8 +79,9 @@ function reallyDoPref(i, update_cb, done_cb) {
       ifSizeTest(s);
     let t8 = performance.now();
       ifLengthTest(a);
+    let t9 = performance.now();
     
-    TIMES.push([t1-t0, t2-t1, t3-t2, t4-t3, t5-t4, t6-t5, t7-t6, t8-t7]);
+    TIMES.push([t1-t0, t2-t1, t3-t2, t4-t3, t5-t4, t6-t5, t7-t6, t8-t7, t9-t8]);
     
     update_cb(i);
     
